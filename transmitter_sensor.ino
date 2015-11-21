@@ -18,6 +18,7 @@ const int receive_pin = 2;
 const int sensor_pin = 3;
 const String sensor_name = "bed1";
 const bool debug_mode = false;
+const int time_between_reads = 30 * 1000;
 
 void setup()
 {
@@ -79,6 +80,6 @@ void sendMessage(String message) {
   vw_send((uint8_t *)buf, buf_len);
   vw_wait_tx(); // Wait until the whole message is gone
   digitalWrite(led_pin, LOW);
-  delay(2000);
+  delay(time_between_reads);
  
 }
